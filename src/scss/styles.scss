@@ -1,136 +1,506 @@
-@import url("https://fonts.googleapis.com/css2?family=B612+Mono&family=DM+Serif+Display:ital@0;1&display=swap");
-@import "_variables";
-@import "_elements";
+@import url("https://fonts.googleapis.com/css2?family=Cookie&family=Great+Vibes&family=Parisienne&display=swap");
+@import "reset";
+@import "_title";
 
 * {
   box-sizing: border-box;
 }
-
 body {
-  font-family: "DM Serif Display", monospace;
-  padding: 45px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  section:not(:nth-child(2)) {
+    padding: 0 140px;
+    @media only screen and (max-width: 980px) {
+      padding: 0;
+    }
+  }
+  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
 header {
-  background-color: black;
-  border: 1px solid black;
-  margin-bottom: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  width: 100vw;
+  height: 80px;
+  padding: 0 140px;
+  @media only screen and (max-width: 980px) {
+    padding: 0 20px;
+  }
+  display: flex;
+  align-items: center;
+  z-index: 10;
   nav {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     ul {
-      display: grid;
-      gap: 1px;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(2, 60px);
+      display: flex;
+      align-items: center;
+      font-size: 10px;
+      font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
+      text-transform: uppercase;
       li {
-        background-color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &:nth-child(2) {
-          grid-column-start: span 2;
-          font-size: 32px;
-          text-transform: uppercase;
+        margin-right: 40px;
+        @media only screen and (max-width: 980px) {
+          margin-right: 15px;
+          &:last-child {
+            margin-right: 0px;
+          }
         }
       }
     }
   }
 }
 
-main {
-  h1,
-  h6 {
+.under-hero {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 80px;
+  @media only screen and (max-width: 980px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  img {
+    width: 100%;
+  }
+  .under-hero__column {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    background: #f9f7f5;
+    h2 {
+      width: 50%;
+      margin-bottom: 50px;
+      @extend %Title;
+    }
+    h4 {
+      @extend %miniTitle;
+      border: 1px solid grey;
+      padding: 15px 25px;
+      @extend %hoverBlack;
+    }
   }
-  h1 {
-    font-size: 58px;
-    margin-bottom: 20px;
+}
+.our-studio {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  text-align: center;
+  @media only screen and (max-width: 980px) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 1fr 1fr;
   }
-  h6 {
-    font-family: "B612 Mono";
-    font-size: 12px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  .our-studio__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #f7f2f1;
+    span {
+      @extend %miniTitle;
+      margin-bottom: 30px;
+    }
+    h2 {
+      width: 70%;
+      @extend %Title;
+      margin-bottom: 50px;
+    }
+    .our-studio__column__box {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid grey;
+      transition: background 0.1s linear, color 0.1s linear,
+        border 0.1s ease-in-out;
+      cursor: pointer;
+      &:hover {
+        background: black;
+        color: white;
+        i {
+          border: none;
+        }
+      }
+      h4 {
+        padding: 15px 30px;
+        @extend %miniTitle;
+      }
+      i {
+        padding: 15px;
+        border-left: 1px solid grey;
+      }
+    }
+  }
+}
+.the-shop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: stretch;
+  margin: 90px 0;
+  width: 100%;
+  miniTitle {
+    @extend %miniTitle;
+    margin: 10px;
+    color: grey;
+  }
+  theShopTitle {
+    @extend %Title;
+    margin-bottom: 60px;
+  }
+  .the-shop-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 500px);
+    @media only screen and (max-width: 980px) {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(3, 500px);
+    }
+
+    justify-content: space-between;
+    .the-shop__column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .the-shop__image-1 {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        background: url("//cdn.shopify.com/s/files/1/0086/4865/4895/products/gildedvelvetbottlesfinalwhite_320x400_crop_center.png?v=1605563796 1x, //cdn.shopify.com/s/files/1/0086/4865/4895/products/gildedvelvetbottlesfinalwhite_640x800_crop_center.png?v=1605563796 2x")
+          center center no-repeat;
+        transition: background 0.3s linear;
+        &:hover {
+          background: url("//cdn.shopify.com/s/files/1/0086/4865/4895/products/gildedvelvetblobs_320x400_crop_center.png?v=1605563796")
+            center center no-repeat;
+        }
+      }
+      .the-shop__image-2 {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        background: url("//cdn.shopify.com/s/files/1/0086/4865/4895/products/FW20Bottles_2_320x400_crop_center.png?v=1605653913 1x, //cdn.shopify.com/s/files/1/0086/4865/4895/products/FW20Bottles_2_640x800_crop_center.png?v=1605653913 2x")
+          center center no-repeat;
+        transition: background 0.3s linear;
+        &:hover {
+          background: url("//cdn.shopify.com/s/files/1/0086/4865/4895/products/FW20BLOBS_320x400_crop_center.png?v=1605653913")
+            center center no-repeat;
+        }
+      }
+      .the-shop__image-3 {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        background: url("//cdn.shopify.com/s/files/1/0086/4865/4895/products/FINALFW20Bottles_1_320x400_crop_center.png?v=1605653752 1x, //cdn.shopify.com/s/files/1/0086/4865/4895/products/FINALFW20Bottles_1_640x800_crop_center.png?v=1605653752 2x")
+          center center no-repeat;
+        transition: background 0.3s linear;
+        &:hover {
+          background: url("//cdn.shopify.com/s/files/1/0086/4865/4895/products/SS20BLOBS_598e1e38-e5fb-4c17-9f55-35657e96362f_320x400_crop_center.png?v=1605653752")
+            center center no-repeat;
+        }
+      }
+      h5 {
+        margin-bottom: 10px;
+        @extend %miniTitle;
+        span {
+          color: peru;
+          padding: 0 10px;
+          border-left: 1px solid grey;
+        }
+      }
+      h3 {
+        @extend %middleTitle;
+        margin-bottom: 10px;
+      }
+      h6 {
+        @extend %miniTitle;
+        margin-bottom: 30px;
+        font-size: 8px;
+        color: grey;
+        &:hover {
+          content: "View Detail";
+        }
+      }
+      h4 {
+        @extend %miniTitle;
+        border: 1px solid grey;
+        padding: 15px 60px;
+        cursor: pointer;
+        @extend %hoverBlack;
+      }
+    }
+  }
+}
+.gift-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  @media only screen and (max-width: 980px) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    img {
+      width: 75vw;
+    }
+  }
+  align-items: center;
+  text-align: center;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  .gift-card__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #ecede8;
+    span {
+      @extend %miniTitle;
+      margin-bottom: 30px;
+    }
+    h2 {
+      width: 70%;
+      @extend %Title;
+      margin-bottom: 50px;
+    }
+    .gift-card__column__box {
+      width: 40%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid grey;
+      cursor: pointer;
+      @extend %hoverBlack;
+      h4 {
+        padding: 15px 30px;
+        @extend %miniTitle;
+      }
+    }
+  }
+}
+.inspiration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 80px 0;
+  width: 100%;
+  > span {
+    @extend %miniTitle;
+    margin-bottom: 30px;
+  }
+  h3 {
+    @extend %Title;
+    font-size: 24px;
+    letter-spacing: unset;
+    font-weight: 300;
+    margin-bottom: 60px;
+  }
+  .inspiration_images {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    margin-bottom: 50px;
+    padding: 0 10vw;
+    justify-content: space-around;
+    @media only screen and (max-width: 980px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .img_wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      &:not(:last-child) {
+        border-right: 1px solid grey;
+      }
+      @media only screen and (max-width: 980px) {
+        border: none;
+        &:nth-child(even) {
+          border-right: 1px;
+        }
+      }
+      img {
+        height: 100px;
+        margin-bottom: 20px;
+      }
+      span {
+        font-size: 8px;
+        color: grey;
+      }
+    }
+  }
+  h5 {
+    @extend %miniTitle;
+    padding: 15px 30px;
+    border: 1px solid grey;
+    @extend %hoverBlack;
+  }
+}
+.link-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  // grid-template-rows: repeat(3, 40%);
+  @media only screen and (max-width: 980px) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+  margin-bottom: 150px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  div {
+    background: #f3ede8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.4);
+    h4 {
+      @extend %miniTitle;
+      margin-bottom: 30px;
+    }
+    h2 {
+      @extend %Title;
+      color: rgba(0, 0, 0, 0.4);
+      width: 60%;
+      font-size: 28px;
+      margin-bottom: 50px;
+    }
+    h5 {
+      @extend %miniTitle;
+    }
+  }
+}
+.conversation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 70px;
+  h5 {
+    @extend %miniTitle;
+    margin-bottom: 30px;
+  }
+  h3 {
+    @extend %Title;
+    width: 60%;
+    font-size: 35px;
     margin-bottom: 50px;
   }
+  .converstaion__email {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0px;
+    border-bottom: 1px solid grey;
+    input {
+      @extend %Title;
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 0 10px;
+    }
+    i {
+      border: 1px solid grey;
+      padding: 10px;
+      color: rgba(0, 0, 0, 0.5);
+      font-size: 16px;
+    }
+  }
 }
-
-.hero {
+.followUs {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 80vh;
+  grid-template-columns: repeat(2, 1fr);
+  @media only screen and (max-width: 980px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
   margin-bottom: 150px;
-  .hero__img {
-    background-image: url("https://source.unsplash.com/random/");
-    background-position: center center;
-    background-size: cover;
-    &:first-child {
-      background-image: url("https://source.unsplash.com/random/1");
-    }
-    &:last-child {
-      background-image: url("https://source.unsplash.com/random/2");
-    }
-    &:nth-last-child(2) {
-      background-image: url("https://source.unsplash.com/random/3");
-    }
+  img {
+    width: 100%;
+    height: 100%;
   }
-}
-
-.arrivals {
-  h4 {
-    font-size: 36px;
-    margin-bottom: 70px;
+  div {
+    background-color: #d5d9dd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-  }
-  .wrapper {
-    border: 1px solid black;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 80vh auto;
-    background-color: black;
-    gap: 1px;
-    .product,
-    .arrivals__category {
-      background-color: white;
+    h5 {
+      @extend %miniTitle;
+      margin-bottom: 40px;
     }
-    .arrivals__category {
-      grid-column-start: span 2;
-      text-align: center;
-      font-size: 20px;
-      padding: 20px 0px;
+    h3 {
+      @extend %Title;
+      width: 70%;
+      font-size: 1.5rem;
+      margin-bottom: 50px;
     }
-    .product {
-      padding: 40px;
-      display: grid;
-      gap: 20px;
-      grid-template-rows: 80% auto;
-      .product__photo {
-        background-color: black;
-      }
-      .product__data {
-        display: flex;
-        flex-direction: column;
-        .price {
-          margin-top: 10px;
-        }
-      }
+    .followUs__Box {
+      @extend %hoverBlack;
+      @extend %miniTitle;
+      padding: 30px 90px;
+      border: 1px solid black;
     }
   }
 }
-
-footer {
-  margin: 100px 0px;
+.gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 10fr 2fr;
-  background-color: black;
-  gap: 1px;
-  height: 200px;
-  border: 1px solid black;
-  div {
-    background-color: white;
-    &:first-child {
-      grid-column: span 2;
+  justify-content: center;
+  @media only screen and (max-width: 980px) {
+    grid-template-columns: repeat(2, 30vw);
+  }
+  transition: opacity 0.2s linear;
+  margin-bottom: 100px;
+  img {
+    max-width: 100%;
+    &:hover {
+      opacity: 0.5;
     }
-    &:last-child {
-      grid-column: 1 / -1;
+  }
+}
+.footer {
+  width: 100%;
+  height: 40vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  align-content: center;
+  background: #f3ede8;
+  text-align: center;
+  @extend %miniTitle;
+  .footer__column {
+    display: flex;
+    flex-direction: column;
+    &:not(:last-child) {
+      border-right: 1px solid grey;
+    }
+    .column__title {
+      margin-bottom: 30px;
+      color: grey;
+    }
+    ul {
+      line-height: 2;
     }
   }
 }

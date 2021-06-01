@@ -1,0 +1,25 @@
+%miniTitle {
+  font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.9px;
+  text-transform: uppercase;
+}
+%middleTitle {
+  font-family: "Cookie", "Times New Roman", serif;
+  font-size: 26px;
+}
+%Title {
+  line-height: 1.2;
+  font-size: 30px;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: "freight-display-pro", "Times New Roman", serif;
+}
+%hoverBlack {
+  transition: background 0.1s, color 0.1s;
+  cursor: pointer;
+  &:hover {
+    background: black;
+    color: white;
+  }
+}
